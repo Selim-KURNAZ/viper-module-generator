@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Viper" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +704,132 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Viper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x7Q-48-zqz">
+                                <rect key="frame" x="183" y="237" width="115" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="dVI-AZ-fYC"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Viper New Module" id="kXu-gy-HYo">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kR8-Q3-vYs">
+                                <rect key="frame" x="20" y="207" width="392" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="yri-Qy-KdV"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter New Module Name" drawsBackground="YES" id="lDd-sr-H2v">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="J6H-eF-lgT">
+                                <rect key="frame" x="18" y="96" width="444" height="13"/>
+                                <textFieldCell key="cell" selectable="YES" title="Description:" id="6SO-X8-Qby">
+                                    <font key="font" metaFont="system" size="10"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2c3-yV-THV">
+                                <rect key="frame" x="354" y="32" width="112" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="aiG-CE-Cry"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Create Files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="I9I-gp-O1G">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="generateFiles:" target="XfG-lQ-9wD" id="mS8-Rf-VJ6"/>
+                                </connections>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="2AF-Pj-RUO">
+                                <rect key="frame" x="420" y="207" width="40" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="6kA-7B-g2B"/>
+                                    <constraint firstAttribute="height" constant="22" id="Ic0-aO-ecE"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="directory" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="6Nd-FB-1rQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <color key="contentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="openTargetPath:" target="XfG-lQ-9wD" id="AAr-Vd-x9d"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HJL-KH-oVp">
+                                <rect key="frame" x="20" y="177" width="392" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="New Project" placeholderString="Project Name" drawsBackground="YES" id="X7D-4S-8Z0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mb7-Lq-ttm">
+                                <rect key="frame" x="20" y="147" width="392" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Author" placeholderString="Author Name" drawsBackground="YES" id="U9g-Ru-BUy">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rxg-ml-6Oc">
+                                <rect key="frame" x="20" y="117" width="392" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Software House" placeholderString="Copyright" drawsBackground="YES" id="2Zj-6S-gQc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="2AF-Pj-RUO" firstAttribute="centerY" secondItem="kR8-Q3-vYs" secondAttribute="centerY" id="1ev-CB-Cej"/>
+                            <constraint firstAttribute="trailing" secondItem="J6H-eF-lgT" secondAttribute="trailing" constant="20" id="8yY-3C-eO5"/>
+                            <constraint firstItem="Mb7-Lq-ttm" firstAttribute="top" secondItem="HJL-KH-oVp" secondAttribute="bottom" constant="8" id="CZt-3X-gQ8"/>
+                            <constraint firstItem="kR8-Q3-vYs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="EdI-tP-qj4"/>
+                            <constraint firstItem="2AF-Pj-RUO" firstAttribute="leading" secondItem="kR8-Q3-vYs" secondAttribute="trailing" constant="8" id="Fi7-58-KKP"/>
+                            <constraint firstAttribute="trailing" secondItem="2c3-yV-THV" secondAttribute="trailing" constant="20" id="HYF-sU-mcM"/>
+                            <constraint firstItem="kR8-Q3-vYs" firstAttribute="top" secondItem="x7Q-48-zqz" secondAttribute="bottom" constant="8" id="HZJ-UM-qvd"/>
+                            <constraint firstItem="Mb7-Lq-ttm" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="IgV-l7-U3e"/>
+                            <constraint firstItem="x7Q-48-zqz" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="M6j-3A-gbv"/>
+                            <constraint firstItem="J6H-eF-lgT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="NeX-Tk-PqW"/>
+                            <constraint firstItem="Rxg-ml-6Oc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="PwL-Xx-5HX"/>
+                            <constraint firstItem="HJL-KH-oVp" firstAttribute="top" secondItem="kR8-Q3-vYs" secondAttribute="bottom" constant="8" id="Sid-Q1-uxd"/>
+                            <constraint firstItem="Mb7-Lq-ttm" firstAttribute="top" secondItem="HJL-KH-oVp" secondAttribute="bottom" constant="8" id="TPU-Lo-Dx5"/>
+                            <constraint firstAttribute="trailing" secondItem="Mb7-Lq-ttm" secondAttribute="trailing" constant="68" id="hcE-5D-xbo"/>
+                            <constraint firstItem="Rxg-ml-6Oc" firstAttribute="top" secondItem="Mb7-Lq-ttm" secondAttribute="bottom" constant="8" id="heC-9t-Crn"/>
+                            <constraint firstItem="J6H-eF-lgT" firstAttribute="top" secondItem="Rxg-ml-6Oc" secondAttribute="bottom" constant="8" id="iqP-qc-Qdm"/>
+                            <constraint firstItem="x7Q-48-zqz" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="j7A-Tr-LL7"/>
+                            <constraint firstAttribute="trailing" secondItem="HJL-KH-oVp" secondAttribute="trailing" constant="68" id="nED-5P-ye2"/>
+                            <constraint firstAttribute="trailing" secondItem="Rxg-ml-6Oc" secondAttribute="trailing" constant="68" id="oPE-P8-cNZ"/>
+                            <constraint firstItem="2c3-yV-THV" firstAttribute="top" secondItem="J6H-eF-lgT" secondAttribute="bottom" constant="36" id="ulN-0L-eOb"/>
+                            <constraint firstItem="HJL-KH-oVp" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="wAb-gK-x6j"/>
+                            <constraint firstAttribute="trailing" secondItem="2AF-Pj-RUO" secondAttribute="trailing" constant="20" id="xeq-pG-73U"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="authorNAmeTextField" destination="Mb7-Lq-ttm" id="0if-2b-E7e"/>
+                        <outlet property="copyrightTextField" destination="Rxg-ml-6Oc" id="l4f-yg-tRy"/>
+                        <outlet property="moduleNameTextField" destination="kR8-Q3-vYs" id="O2i-af-c5U"/>
+                        <outlet property="prijectNameTextField" destination="HJL-KH-oVp" id="3Iw-ik-eD6"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="directory" width="128" height="128"/>
+    </resources>
 </document>

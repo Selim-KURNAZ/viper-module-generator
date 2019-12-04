@@ -1,0 +1,27 @@
+//
+//  {{name}}Wireframe.swift
+//  {{projectName}}
+//
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{copyright}} All rights reserved.
+//
+
+import Foundation
+
+class {{name}}Wireframe: Wireframe {
+
+    func show() {
+        let interactor = {{name}}Interactor()
+        let presenter  =  {{name}}Presenter(interactor: interactor)
+        let controller = {{name}}ViewController(eventHandler: presenter)
+
+        
+        interactor.output = presenter
+        presenter.controller = controller
+        presenter.wireframe =  self
+
+        NavigationManager.shared.showViewController(controller, using: .push(asRoot: false))
+    }
+
+}
+

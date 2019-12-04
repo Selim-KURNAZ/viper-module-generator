@@ -1,0 +1,20 @@
+//
+//  {{name}}Wireframe.swift
+//  {{projectName}}
+//
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{copyright}} All rights reserved.
+//
+import Foundation
+
+class {{name}}Presenter: {{name}}ModuleInterface, {{name}}InteractorOutput {
+    var interactor: {{name}}InteractorInput?
+    var controller: {{name}}ViewInterface?
+    var wireframe: {{name}}Wireframe?
+
+
+init(interactor: {{name}}InteractorInput) {
+    self.interactor = interactor
+}
+
+}

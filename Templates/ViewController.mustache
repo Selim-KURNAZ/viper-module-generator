@@ -1,0 +1,22 @@
+//
+//  {{name}}Wireframe.swift
+//  {{projectName}}
+//
+//  Created by {{author}} on {{date}}.
+//  Copyright © {{copyright}} All rights reserved.
+//
+import Foundation
+
+class {{name}}ViewController: UIViewController, {{name}}ViewInterface {
+
+    var eventHandler: {{name}}ModuleInterface!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    func inject(eventHandler: {{name}}ModuleInterface) {
+        self.eventHandler = eventHandler
+    }
+
+}
